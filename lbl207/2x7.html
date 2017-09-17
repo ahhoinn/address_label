@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.10.1/xlsx.core.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.10.1/cpexcel.js"></script>
+</head>
+
+<body>
+<style>
+* {
+    margin: 0px;
+}
+/*#list1 li, #list2 li{
+
+height: 153px;
+}
+*/
+
+#loading {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
+}
+
+#loading h2 {
+    margin: 0
+}
+
+@media print {
+    input,
+    button {
+        display: none;
+    }
+}
+
+.addr1,
+.addr2 {
+	margin-top: 3px;
+    margin-left: 20px;
+    text-align: left;
+    margin-bottom: 5px;
+	font-size: 10px;
+}
+
+.addr2 {
+    margin-bottom: 30px;
+}
+
+.name,
+.post {
+    text-align: right;
+    font-size: 18px;
+}
+
+.name {
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.name span {
+    margin-left: 10px;
+}
+
+.post {
+    letter-spacing: 10px;
+}
+
+@page {
+    size: A4;
+    size: 21cm 29.7cm;
+    margin-top: 15.15mm !important;
+    /* plus .6 inches from padding */
+    margin-bottom: 15.15mm !important;
+    /* plus .6 inches from padding */
+    margin-left: 4.9mm !important;
+    /* plus .6 inches from padding */
+    margin-right: 4.9mm !important;
+    /* plus .6 inches from padding */
+}
+
+body {
+    max-width: 210mm !important;
+    /* plus .6 inches from padding */
+    max-height: 297mm !important;
+    /* plus .6 inches from padding */
+    min-width: 210mm !important;
+    /* plus .6 inches from padding */
+    min-height: 297mm !important;
+        margin-left: 4.9mm !important;
+    /* plus .6 inches from padding */
+    margin-right: 4.9mm !important;
+    /* plus .6 inches from padding */
+
+/* ... the rest of the rules ... */
+}
+.top{
+margin-top: 15.15mm !important;	
+}
+
+.left{
+margin-left: 4.9mm !important;		
+}
+
+.label {
+/* Avery 5160 labels */    
+	width: 99.1mm !important;
+	height: 38.1mm !important;
+	max-width: 99.1mm !important;
+	max-height: 38.1mm !important;
+	display: inline-block;
+	overflow: hidden;
+}
+
+
+@media all {
+.page-break {
+    display: none;
+}
+}
+.page-break {
+	display: block;
+	page-break-before: always;
+
+    /* plus .6 inches from padding */
+    margin-bottom: 15.15mm !important;
+}
+</style>
+</head>
+
+<body>
+<div class="form-group">
+    <input type="file" class="form-control" id="fileInput" />
+    <input type="text" class="form-control" id="dear" placeholder="예시: 귀하, 귀중" />
+</div>
+<div id="loading">
+    <h2>잠시만 기다려 주세요..</h2>
+</div>
+<button id="printBtn">프린트</button>
+<div id="labels"></div>
+<!-- <ul id="list1">
+</ul>
+<ul id="list2">
+</ul> -->
+</body>
+<script src="print.js"></script>
+
+</html>
